@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" fill="none">
+  <rect width="128" height="128" rx="28" fill="#FFF7ED"/>
+  <g transform="rotate(42 64 64)">
+    <!-- Bone -->
+    <rect x="58" y="68" width="12" height="26" rx="4" fill="#FFFFFF" stroke="#0F172A" stroke-width="4" stroke-linejoin="round"/>
+    <circle cx="57" cy="95" r="7.5" fill="#FFFFFF" stroke="#0F172A" stroke-width="4"/>
+    <circle cx="71" cy="95" r="7.5" fill="#FFFFFF" stroke="#0F172A" stroke-width="4"/>
+    <!-- Drumstick meat -->
+    <path
+      d="M64 22C81 22 90 35 86 52C83 64 75 73 70 75H58C53 73 45 64 42 52C38 35 47 22 64 22Z"
+      fill="#C2410C"
+      stroke="#0F172A"
+      stroke-width="4"
+      stroke-linejoin="round"
+    />
+    <!-- Grill marks -->
+    <path
+      d="M54 44L75 40"
+      stroke="#FFF7ED"
+      stroke-width="4"
+      stroke-linecap="round"
+    />
+    <path
+      d="M52 55L73 51"
+      stroke="#FFF7ED"
+      stroke-width="4"
+      stroke-linecap="round"
+    />
+  </g>
+</svg>
