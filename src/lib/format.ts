@@ -42,14 +42,6 @@ export function formatDateShortID(yyyyMmDd: string): string {
   }).format(date);
 }
 
-export function formatChickenShortName(menuName: string): string {
-  const stripped = menuName
-    .replace(/^ayam\s+bakar\s*/i, "")
-    .replace(/^\((.+)\)$/, "$1")
-    .trim();
-  return stripped || menuName;
-}
-
 export function getTodayWIB(): string {
   return new Intl.DateTimeFormat("en-CA", {
     timeZone: "Asia/Jakarta",
@@ -89,9 +81,10 @@ export function toWIBDateKey(isoString: string): string {
 }
 
 export const CATEGORY_LABELS: Record<string, string> = {
-  ayam: "Ayam Bakar",
+  makanan: "Makanan",
   nasi: "Nasi",
   minuman: "Minuman",
+  snack: "Camilan",
   lainnya: "Lainnya",
 };
 

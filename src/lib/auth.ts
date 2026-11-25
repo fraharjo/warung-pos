@@ -2,13 +2,13 @@ import crypto from "crypto";
 import { cookies } from "next/headers";
 import type { SessionUser } from "./types";
 
-export const SESSION_COOKIE_NAME = "ab_pos_session";
+export const SESSION_COOKIE_NAME = "warung_pos_session";
 const SESSION_MAX_AGE_SECONDS = 60 * 60 * 24 * 7; // 7 hari
 
 function getAuthSecret(): string {
   return (
     process.env.AUTH_SECRET ||
-    "ayam-bakar-pos-local-dev-secret-change-in-production"
+    "warung-pos-local-dev-secret-change-in-production"
   );
 }
 

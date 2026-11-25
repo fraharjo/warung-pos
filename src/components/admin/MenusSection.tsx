@@ -68,7 +68,7 @@ export function MenusSection({
   // Add menu form state
   const [newName, setNewName] = useState("");
   const [newCategory, setNewCategory] = useState<MenuCategory>(
-    categories[0]?.slug || "ayam"
+    categories[0]?.slug || "makanan"
   );
   const [newPrice, setNewPrice] = useState("");
   const [newTrackStock, setNewTrackStock] = useState(false);
@@ -79,7 +79,7 @@ export function MenusSection({
   // Inline edit state
   const [editingId, setEditingId] = useState<number | null>(null);
   const [editName, setEditName] = useState("");
-  const [editCategory, setEditCategory] = useState<MenuCategory>("ayam");
+  const [editCategory, setEditCategory] = useState<MenuCategory>("makanan");
   const [editPrice, setEditPrice] = useState("");
   const [editTrackStock, setEditTrackStock] = useState(false);
 
@@ -554,7 +554,7 @@ export function MenusSection({
               <span>Kategori Menu</span>
             </h2>
             <p className="text-xs text-slate-600 mt-0.5">
-              Tambahkan kategori sendiri (misal: Paket Hemat, Sambal &amp; Lalapan, Lauk Tambahan).
+              Tambahkan kategori sendiri (misal: Makanan, Minuman, Paket Hemat, Camilan).
             </p>
           </div>
 
@@ -696,7 +696,7 @@ export function MenusSection({
                     setAddErrors((prev) => ({ ...prev, name: undefined }));
                   }
                 }}
-                placeholder="Contoh: Tahu Bakar"
+                placeholder="Contoh: Nasi Goreng Spesial"
                 className={`w-full min-h-[40px] rounded-lg border px-3 py-2 text-sm text-slate-900 placeholder:text-slate-500 ${
                   addErrors.name ? "border-red-600" : "border-slate-300"
                 }`}
@@ -1096,7 +1096,7 @@ export function MenusSection({
                           </span>
                           {menu.trackStock ? (
                             <span className="inline-flex items-center text-xs font-mono font-semibold px-2 py-0.5 rounded-md bg-blue-50 text-blue-900 whitespace-nowrap">
-                              Stok: {menu.stock} ptg
+                              Stok: {menu.stock} porsi
                             </span>
                           ) : (
                             <span className="text-xs text-slate-600">

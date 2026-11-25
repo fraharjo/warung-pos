@@ -15,7 +15,7 @@ export function getDb(): DatabaseAdapter {
   let db = globalThis.__ayamBakarDb as
     | (DatabaseAdapter & { adapterVersion?: number })
     | undefined;
-  if (!db || db.adapterVersion !== 5) {
+  if (!db || db.adapterVersion !== 6) {
     const dbUrl = process.env.DATABASE_URL;
     db = dbUrl ? new PostgresDatabase(dbUrl) : new LocalJsonDatabase();
     globalThis.__ayamBakarDb = db;

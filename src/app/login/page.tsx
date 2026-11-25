@@ -4,7 +4,7 @@ import { LoginForm } from "@/components/LoginForm";
 export const dynamic = "force-dynamic";
 
 export default async function LoginPage() {
-  let storeName = "Ayam Bakar Spesial";
+  let storeName = "Warung POS";
   let storeLogo = "";
   try {
     const settings = await getDb().getSettings();

@@ -1,9 +1,10 @@
 import type { Metadata, Viewport } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import { getDb } from "@/lib/db";
 import "./globals.css";
 
 export async function generateMetadata(): Promise<Metadata> {
-  let storeName = "Ayam Bakar Spesial";
+  let storeName = "Warung POS";
   try {
     const settings = await getDb().getSettings();
     if (settings.storeName?.trim()) {
@@ -16,7 +17,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: `${storeName} — Kasir POS & Stok`,
     description:
-      "Aplikasi kasir POS untuk mencatat pesanan, hitung kembalian, cetak struk thermal 58mm, dan melacak stok ayam bakar.",
+      "Aplikasi kasir POS untuk mencatat pesanan, hitung kembalian, cetak struk termal 58mm/80mm, dan melacak stok menu.",
     manifest: "/manifest.json",
   };
 }
@@ -36,6 +37,7 @@ export default function RootLayout({
     <html lang="id">
       <body className="min-h-screen bg-[#F8FAFC] text-slate-900 antialiased">
         {children}
+        <Analytics />
       </body>
     </html>
   );

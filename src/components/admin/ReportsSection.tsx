@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { Banknote, QrCode, Calendar, RefreshCw, AlertCircle } from "lucide-react";
 import {
   CATEGORY_LABELS,
-  formatChickenShortName,
   formatDateShortID,
   formatRupiah,
   getDaysAgoWIB,
@@ -293,7 +292,7 @@ export function ReportsSection({
                   className="flex items-center justify-between gap-2 text-sm"
                 >
                   <span className="text-slate-800 text-xs font-semibold truncate">
-                    {formatChickenShortName(m.menuName)}
+                    {m.menuName}
                   </span>
                   <span
                     className={`inline-flex items-center font-mono font-bold tabular-nums text-xs px-2 py-0.5 rounded-md whitespace-nowrap ${

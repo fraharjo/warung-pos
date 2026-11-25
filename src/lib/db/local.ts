@@ -124,7 +124,7 @@ function buildInitialData(): LocalStoreData {
 }
 
 export class LocalJsonDatabase implements DatabaseAdapter {
-  readonly adapterVersion = 5;
+  readonly adapterVersion = 6;
   private writeQueue: Promise<unknown> = Promise.resolve();
 
   private async readData(): Promise<LocalStoreData> {
@@ -555,7 +555,7 @@ export class LocalJsonDatabase implements DatabaseAdapter {
       const todayCount = data.orders.filter(
         (o) => toWIBDateKey(o.createdAt) === dateKey
       ).length;
-      const orderNumber = `AB-${compactDate}-${String(todayCount + 1).padStart(3, "0")}`;
+      const orderNumber = `ORD-${compactDate}-${String(todayCount + 1).padStart(3, "0")}`;
 
       const orderId = ++data.counters.orders;
       const orderItems: OrderItem[] = resolvedItems.map(({ menu, qty }) => ({

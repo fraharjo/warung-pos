@@ -118,7 +118,7 @@ export function StockSection({
       <div>
         <h2 className="font-bold text-slate-900 text-lg">Manajemen Stok Menu</h2>
         <p className="text-xs text-slate-600 mt-0.5">
-          Tambah atau kurangi stok untuk setiap menu yang mengaktifkan pelacakan stok (ayam, ikan, bebek, atau lauk lainnya).
+          Tambah atau kurangi stok untuk setiap menu yang mengaktifkan pelacakan stok.
         </p>
       </div>
 

@@ -26,7 +26,6 @@ import {
 } from "lucide-react";
 import {
   CATEGORY_LABELS,
-  formatChickenShortName,
   formatRupiah,
   formatTimeWIB,
 } from "@/lib/format";
@@ -66,13 +65,13 @@ interface DraftSnapshot {
   cashInput: string;
 }
 
-const DRAFT_STORAGE_KEY = "ayam_bakar_pos_draft_v1";
+const DRAFT_STORAGE_KEY = "warung_pos_draft_v1";
 
 const QUICK_NOTE_CHIPS = [
-  "Sambal Pisah",
   "Pedas",
-  "Tanpa Lalapan",
-  "Kecap Banyak",
+  "Tidak Pedas",
+  "Pisah Kuah/Sambal",
+  "Kurangi Es",
 ] as const;
 
 const HISTORY_PAGE_SIZE_OPTIONS = [10, 20, 50] as const;
@@ -81,42 +80,36 @@ function getMenuTag(
   menu: Menu,
   categoryMap: Record<string, string>
 ): { label: string; className: string } {
-  const lower = menu.name.toLowerCase();
-  if (menu.category === "ayam") {
-    if (lower.includes("paha")) {
-      return {
-        label: "PAHA",
-        className: "bg-blue-100 text-blue-900 border-blue-200",
-      };
-    }
-    if (lower.includes("dada")) {
-      return {
-        label: "DADA",
-        className: "bg-amber-100 text-amber-900 border-amber-300",
-      };
-    }
-    return {
-      label: "AYAM",
-      className: "bg-blue-100 text-blue-900 border-blue-200",
-    };
-  }
-  if (menu.category === "nasi") {
-    return {
-      label: "NASI",
-      className: "bg-emerald-100 text-emerald-900 border-emerald-200",
-    };
-  }
-  if (menu.category === "minuman") {
-    return {
-      label: "MINUMAN",
-      className: "bg-sky-100 text-sky-900 border-sky-200",
-    };
-  }
   const customLabel = (
     categoryMap[menu.category] ||
     CATEGORY_LABELS[menu.category] ||
     menu.category
   ).toUpperCase();
+
+  if (menu.category === "makanan") {
+    return {
+      label: customLabel,
+      className: "bg-blue-100 text-blue-900 border-blue-200",
+    };
+  }
+  if (menu.category === "nasi") {
+    return {
+      label: customLabel,
+      className: "bg-emerald-100 text-emerald-900 border-emerald-200",
+    };
+  }
+  if (menu.category === "minuman") {
+    return {
+      label: customLabel,
+      className: "bg-sky-100 text-sky-900 border-sky-200",
+    };
+  }
+  if (menu.category === "snack") {
+    return {
+      label: customLabel,
+      className: "bg-amber-100 text-amber-900 border-amber-300",
+    };
+  }
   return {
     label: customLabel,
     className: "bg-slate-200 text-slate-800 border-slate-300",
@@ -1381,7 +1374,7 @@ export function PosClient({
                         : "bg-slate-100 text-slate-800 border-slate-200"
                     }`}
                   >
-                    {formatChickenShortName(m.name)}: {m.stock} porsi
+                    {m.name}: {m.stock} porsi
                   </span>
                 ))}
               </div>

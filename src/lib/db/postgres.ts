@@ -62,7 +62,7 @@ function mapUserRow(row: Record<string, unknown>): User {
 }
 
 export class PostgresDatabase implements DatabaseAdapter {
-  readonly adapterVersion = 5;
+  readonly adapterVersion = 6;
   private pool: Pool;
   private initPromise: Promise<void> | null = null;
 
@@ -705,7 +705,7 @@ export class PostgresDatabase implements DatabaseAdapter {
       );
       const seq = Number(countRes.rows[0].count) + 1;
       const randomSuffix = Math.floor(Math.random() * 90 + 10);
-      let orderNumber = `AB-${compactDate}-${String(seq).padStart(3, "0")}`;
+      let orderNumber = `ORD-${compactDate}-${String(seq).padStart(3, "0")}`;
 
       // Ensure uniqueness under concurrency
       const dupCheck = await client.query(
@@ -713,7 +713,7 @@ export class PostgresDatabase implements DatabaseAdapter {
         [orderNumber]
       );
       if (dupCheck.rows.length > 0) {
-        orderNumber = `AB-${compactDate}-${String(seq).padStart(3, "0")}-${randomSuffix}`;
+        orderNumber = `ORD-${compactDate}-${String(seq).padStart(3, "0")}-${randomSuffix}`;
       }
 
       const orderRes = await client.query(
