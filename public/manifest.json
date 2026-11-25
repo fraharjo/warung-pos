@@ -1,7 +1,7 @@
 {
-  "name": "Ayam Bakar Spesial — POS & Stok",
-  "short_name": "Ayam Bakar",
-  "description": "Aplikasi kasir, pencatatan pesanan, dan stok ayam bakar",
+  "name": "Warung POS — Kasir, Pesanan & Stok",
+  "short_name": "Warung POS",
+  "description": "Aplikasi kasir, pencatatan pesanan, laporan penjualan, dan manajemen stok untuk warung & UMKM kuliner",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#F8FAFC",
